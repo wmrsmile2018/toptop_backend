@@ -3,14 +3,14 @@
 
 create table users (
   id      varchar primary key,
-  email   integer unique
+  phone   integer unique
 );
 
 \! tput setaf 3; "____________________________________________________________________________________";
-\! tput setaf 1; "___________________________create table posts ____________________________";
+\! tput setaf 1; "___________________________create table places ____________________________";
 \! tput setaf 2;
 
-create table posts (
+create table places (
   id                varchar primary key,
   id_user           varchar,
   id_category       varchar,
@@ -18,7 +18,9 @@ create table posts (
   short_description varchar,
   creation_date     timestamp,
   address           varchar,
-  label             varchar
+  label             varchar,
+  inn               varchar,
+  priority          varchar
 );
 
 \! tput setaf 3; "____________________________________________________________________________________";
@@ -31,12 +33,21 @@ create table category (
 );
 
 \! tput setaf 3; "____________________________________________________________________________________";
-\! tput setaf 1; "___________________________create table tags ____________________________";
+\! tput setaf 1; "___________________________create table user_tags ____________________________";
 \! tput setaf 2;
 
-create table tags (
+create table user_tags (
   id    varchar primary key,
   name  varchar unique
+);
+
+\! tput setaf 3; "____________________________________________________________________________________";
+\! tput setaf 1; "___________________________create table place_user_tags ____________________________";
+\! tput setaf 2;
+
+create table place_user_tags (
+  id_user_tags  varchar ,
+  id_place       varchar
 );
 
 \! tput setaf 3; "____________________________________________________________________________________";
@@ -45,15 +56,26 @@ create table tags (
 
 create table photos (
   id      varchar primary key,
-  id_post varchar,
+  id_place varchar,
   name    varchar unique
 );
 
 \! tput setaf 3; "____________________________________________________________________________________";
-\! tput setaf 1; "___________________________create table post_tags ____________________________";
+\! tput setaf 1; "___________________________create table filters ____________________________";
 \! tput setaf 2;
 
-create table post_tags (
-  id_tag   varchar,
-  id_post  varchar
+create table filters (
+  id    varchar primary key,
+  name  varchar
 );
+
+
+\! tput setaf 3; "____________________________________________________________________________________";
+\! tput setaf 1; "___________________________create table filters_tags ____________________________";
+\! tput setaf 2;
+
+create table place_filters (
+  id_place  varchar,
+  id_filter   varchar
+);
+
