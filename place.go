@@ -1,10 +1,10 @@
 package awesomeProject
 
-type Post struct {
-	Id               int    `json:"id"`
-	IdCategory       int    `json:"id_category"`
-	IdUser           int    `json:"id_user"`
-	IdTags           int    `json:"id_tags"`
+type Place struct {
+	Id               string `json:"id"`
+	IdCategory       string `json:"id_category"`
+	IdUser           string `json:"id_user"`
+	IdTags           string `json:"id_tags"`
 	Label            string `json:"label"`
 	Address          string `json:"address"`
 	CreationDate     string `json:"creation_date"` // Todo change to date
